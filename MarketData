@@ -1,0 +1,24 @@
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class MarketData {
+    private Map<String, Stock> stocks;
+
+    public MarketData() {
+        stocks = new HashMap<>();
+        stocks.put("AAPL", new Stock("AAPL", 145.32));
+        stocks.put("GOOGL", new Stock("GOOGL", 2725.60));
+        stocks.put("AMZN", new Stock("AMZN", 3342.88));
+    }
+
+    public void displayMarketData() {
+        System.out.println("Market Data:");
+        stocks.values().forEach(System.out::println);
+    }
+
+    public Stock getStock(String symbol) {
+        return stocks.get(symbol);
+    }
+}
