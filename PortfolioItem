@@ -1,0 +1,39 @@
+
+public class PortfolioItem {
+    private Stock stock;
+    private int quantity;
+    private double purchasePrice;
+
+    public PortfolioItem(Stock stock, int quantity, double purchasePrice) {
+        this.stock = stock;
+        this.quantity = quantity;
+        this.purchasePrice = purchasePrice;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public double getCurrentValue() {
+        return stock.getCurrentPrice() * quantity;
+    }
+
+    public double getProfitOrLoss() {
+        return (stock.getCurrentPrice() - purchasePrice) * quantity;
+    }
+
+    public void sell(int quantityToSell) {
+        if (quantityToSell <= quantity) {
+            quantity -= quantityToSell;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return stock.getSymbol() + " - Quantity: " + quantity + " - Purchase Price: $" + purchasePrice;
+    }
+}
